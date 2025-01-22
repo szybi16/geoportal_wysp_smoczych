@@ -1,1 +1,3 @@
-Geoportal wysp smoczych, fajna sprawa
+Geoportal Wysp Smoczych
+Powstał jako projekt na zaliczenie przedmiotu na studiach
+Może rozwinę później :)
