@@ -87,7 +87,7 @@ var miasta = {
 { "type": "Feature", "properties": { "id": 82, "opis": "Miasto portowe", "nazwa": "Sosnovody", "ikona": "marina" }, "geometry": { "type": "Point", "coordinates": [ -69.946940161407213, -41.893176698056834 ] } },
 { "type": "Feature", "properties": { "id": 83, "opis": "Stolica lotozaurów", "nazwa": "Ratmygóra", "ikona": "crown" }, "geometry": { "type": "Point", "coordinates": [ -69.720036386006825, -41.661625269474328 ] } },
 { "type": "Feature", "properties": { "id": 84, "opis": "Miasto jaj lotozaurów", "nazwa": "Šarava", "ikona": "volcano" }, "geometry": { "type": "Point", "coordinates": [ -68.988143757083847, -41.758418735271903 ] } },
-{ "type": "Feature", "properties": { "id": 85, "opis": "", "nazwa": "Marana", "ikona": "marina" }, "geometry": { "type": "Point", "coordinates": [ -65.642592602496379, -40.63003483489284 ] } },
+{ "type": "Feature", "properties": { "id": 85, "opis": "", "nazwa": "Marana", "ikona": "mine" }, "geometry": { "type": "Point", "coordinates": [ -65.642592602496379, -40.63003483489284 ] } },
 { "type": "Feature", "properties": { "id": 86, "opis": "Miasto magiczne", "nazwa": "Acton", "ikona": "library" }, "geometry": { "type": "Point", "coordinates": [ -65.22973009387313, -40.438134372362867 ] } },
 { "type": "Feature", "properties": { "id": 87, "opis": "", "nazwa": "Azulandam", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.390098175735062, -40.500432576380497 ] } },
 { "type": "Feature", "properties": { "id": 88, "opis": "", "nazwa": "Andersee", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.265130494922445, -39.530959822362526 ] } },
