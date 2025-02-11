@@ -4,7 +4,25 @@
 <head>
 
 <style>
-html,body,#map{width:100%;height:100%;padding:0;margin:0;}
+	html,
+	body,
+	#map{
+		width:100%;
+		height:100%;
+		padding:0;
+		margin:0;
+	}
+	#menu {
+		position: absolute;
+		bottom: 25px;
+		right: -5%;
+		transform: translateX(-50%);
+		background: white;
+		padding: 11px;
+		z-index: 1000;
+		border-radius: 5px;
+		border: 2px solid #b1b1b1;
+	}
 </style>
 
 <title>Geoportal Wysp Smoczych</title>
@@ -14,92 +32,84 @@ html,body,#map{width:100%;height:100%;padding:0;margin:0;}
 
 <body>
 <div id="map"></div>
+<div id="menu">
+    <label for="styleSelect">Pokaż:</label>
+    <select id="styleSelect">
+        <option value="traditional">Krainy tradycyjne</option>
+		<option value="species">Gatunki</option>
+    </select>
+</div>
 
 <link rel="stylesheet" href="leaflet/leaflet.css">
 <script src="leaflet/leaflet.js"></script>
 
-<script src="Miasta_0_5.js"></script>
-<script src="Wyspy_0_3.js"></script>
+<script src="layers/Miasta_0_5.js"></script>
+<script src="layers/Wyspy_0_4.js"></script>
+<script src="layers/Regiony_1_1.js"></script>
+
+<script src="functions.js"></script>
 
 <script src="plugins/mapkeyicons/L.Icon.Mapkey.js"></script>
 <link rel="stylesheet" href="plugins/mapkeyicons/MapkeyIcons.css" />
 
 <script src="plugins/Leaflet.LinearMeasurement/src/Leaflet.LinearMeasurement.js"></script>
 <link rel="stylesheet" href="plugins/Leaflet.LinearMeasurement/src/Leaflet.LinearMeasurement.css" />
+
 <script>
 
+//Mapa
+
 var full_map = L.map('map', {
-	maxZoom:10,
+	maxZoom:10.5,
 	minZoom:6.5,
-    center: [-39, -67],
-    zoom: 6.5
+	center: [-39, -67],
+	zoom: 6.5
 });
 
 var tlo=L.tileLayer('https://mapwarper.net/maps/tile/88671/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: ' <a href="https://mapwarper.net">Map Warper</a>'})
+var empty=L.tileLayer('')
 tlo.addTo(full_map)
+
+//  Warstwy
 
 var wyspy_layer =L.geoJSON(wyspy, {
 	style: wyspy_STL_off,
 	onEachFeature: wyspy_oEF
+})
+
+var regiony_layer =L.geoJSON(regiony, {
+	style: regiony_STL_off,
+	onEachFeature: regiony_oEF
 }).addTo(full_map);
 
 var miasta_layer = L.geoJSON(miasta, {
 	onEachFeature: miasta_oEF,
 	pointToLayer: miasta_PToL,
-}).addTo(full_map);
+})
 
-function wyspy_STL_off(feature) {
-	return {
-		color: "black",
-		fillColor: "green",
-		fillOpacity: 0.5,
-		weight: 2
-	};
-}
+// Updater, bo tak
 
-function wyspy_STL_on(feature) {
-	return {
-		color: "red",
-		fillColor: "orange",
-		fillOpacity: 0.7,
-		weight: 2
-	};
-}
+document.getElementById("styleSelect").addEventListener("change", function () {
+	regiony_layer.setStyle(regiony_STL_off);
+});
 
-function wyspy_oEF (feature,layer) {
-	var props = feature.properties;
-	var center = layer.getBounds().getCenter();
-	var tt = L.tooltip(center, {content: props.Nazwa, direction: 'center'})
-	layer.on('mouseover', function () {
-		layer.setStyle(wyspy_STL_on(feature));
-		tt.openOn(full_map);
-	});
-	layer.on('mouseout', function () {
-		layer.setStyle(wyspy_STL_off(feature));
-		full_map.closePopup(tt);
-	});
-}
+// Grupy Warstw
 
-function miasta_PToL(feature,latlng) {
-	var props = feature.properties;
-	var mki = L.icon.mapkey({icon:props.ikona,color:'white',background:'red',size:30});
-	return L.marker(latlng,{icon:mki});
-}
-
-function miasta_oEF (feature,layer) {
-	var props = feature.properties;
-	layer.bindTooltip(props.nazwa+'<br>'+props.opis);
-}
-
-L.control.scale().addTo(full_map);
 var baseLayers = {
-    "Tło": tlo
+	"Brak": empty,
+    "Tradycyjna": tlo
 };
-
 var overlays = {
     "Miasta": miasta_layer,
-	"Wyspy": wyspy_layer
+	"Wyspy": wyspy_layer,
+	"Regiony": regiony_layer
 };
+
+// Kontrolki
+
+L.control.scale({
+	maxWidth: 200
+}).addTo(full_map);
 
 L.control.layers(baseLayers, overlays).addTo(full_map);
 
