@@ -33,8 +33,8 @@
 <body>
 <div id="map"></div>
 <div id="menu">
-    <label for="styleSelect">Pokaż:</label>
-    <select id="styleSelect">
+    <label for="select_mode">Pokaż:</label>
+    <select id="select_mode">
         <option value="traditional">Krainy tradycyjne</option>
 		<option value="species">Gatunki</option>
     </select>
@@ -45,7 +45,7 @@
 
 <script src="layers/Miasta_0_5.js"></script>
 <script src="layers/Wyspy_0_4.js"></script>
-<script src="layers/Regiony_1_1.js"></script>
+<script src="layers/Regiony_1_2.js"></script>
 
 <script src="functions.js"></script>
 
@@ -73,13 +73,13 @@ tlo.addTo(full_map)
 //  Warstwy
 
 var wyspy_layer =L.geoJSON(wyspy, {
-	style: wyspy_STL_off,
-	onEachFeature: wyspy_oEF
+	style: polygon_STL_off,
+	onEachFeature: polygon_oEF
 })
 
 var regiony_layer =L.geoJSON(regiony, {
-	style: regiony_STL_off,
-	onEachFeature: regiony_oEF
+	style: polygon_STL_off,
+	onEachFeature: polygon_oEF
 }).addTo(full_map);
 
 var miasta_layer = L.geoJSON(miasta, {
@@ -89,8 +89,9 @@ var miasta_layer = L.geoJSON(miasta, {
 
 // Updater, bo tak
 
-document.getElementById("styleSelect").addEventListener("change", function () {
-	regiony_layer.setStyle(regiony_STL_off);
+document.getElementById("select_mode").addEventListener("change", function () {
+	regiony_layer.setStyle(polygon_STL_off);
+	wyspy_layer.setStyle(polygon_STL_off);
 });
 
 // Grupy Warstw

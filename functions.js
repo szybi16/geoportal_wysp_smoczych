@@ -1,12 +1,3 @@
-function wyspy_STL_off(feature) {
-	return {
-		color: "black",
-		fillColor: "green",
-		fillOpacity: 0.5,
-		weight: 2
-	};
-}
-
 function polygon_STL_on(feature) {
 	return {
 		color: "red",
@@ -14,20 +5,6 @@ function polygon_STL_on(feature) {
 		fillOpacity: 0.8,
 		weight: 2
 	};
-}
-
-function wyspy_oEF (feature,layer) {
-	var props = feature.properties;
-	var center = layer.getBounds().getCenter();
-	var tt = L.tooltip(center, {content: props.nazwa, direction: 'center'})
-	layer.on('mouseover', function () {
-		layer.setStyle(polygon_STL_on(feature));
-		tt.openOn(full_map);
-	});
-	layer.on('mouseout', function () {
-		layer.setStyle(wyspy_STL_off(feature));
-		full_map.closePopup(tt);
-	});
 }
 
 var region_colors = {
@@ -38,19 +15,19 @@ var region_colors = {
 	"Holle": "#e7c743",
 	"Enemau": "#777924",
 	"Amer": "#722722",
-	"Druidzi": "#425a39",
+	"Ziemie Druidzkie": "#425a39",
 	"Kuebenburg": "#923d1d",
 	"Atmony": "#87ab6e",
 	"Fõsslandy": "#6c3472",
 	"Puste": "#ffffff",
-	"Krabalor": "#de5050",
+	"Wyspy Krabalora": "#de5050",
 	"Deben": "#3c8d4d",
 	"Hithamilia": "#cccccc",
 	"Fynathiza": "#674b8c",
 	"Asparyzja": "#9a3434",
 	"Piectuva": "#304329",
-	"Kožara": "#4d3c31",
-	"Amshteyn": "#2c2c2c",
+	"Kožara i Nutžara": "#4d3c31",
+	"Góry Amshteyn": "#2c2c2c",
 	"Draakland": "#375faf",
 	"Wilgid": "#771b36",
 	"Ortemark": "#275f8f",
@@ -58,38 +35,38 @@ var region_colors = {
 };
 
 var species_colors = {
-	"L": "red",
-	"D": "green",
-	"P": "silver",
-	"DL": "blue"
+	"Ludzie": "#ff0000",
+	"Druidzi": "#009933",
+	"Peblemy": "#2c2c2c",
+	"Druidzi i Ludzie": "#804c1a",
+	"Krabolorianie": "#FF6699",
+	"Grzybcy": "#cc00ff",
+	"Lotozaury": "#00CCFF"
 };
 
-function regiony_STL_off(feature) {
-    var selectedStyle = document.getElementById("styleSelect").value;
+function polygon_STL_off(feature) {
+    var mode = document.getElementById("select_mode").value;
     var props = feature.properties;
-    
-    
-    
     return {
         color: "black",
-        fillColor: selectedStyle === "traditional" ? (region_colors[props.kraina] || "#ffffff") : (species_colors[props.gatunek] || "#ffffff"),
+        fillColor: mode === "traditional" ? (region_colors[props.kraina] || "#ffffff") : (species_colors[props.gatunek] || "#ffffff"),
         fillOpacity: 0.7,
         weight: 2
     };
 }
 
-
-function regiony_oEF(feature, layer) {
+function polygon_oEF(feature, layer) {
+	var mode = document.getElementById("select_mode").value;
 	var props = feature.properties;
 	var center = layer.getBounds().getCenter();
-	var tt = L.tooltip(center, {content: props.nazwa, direction: 'center'});
+	var tt = L.tooltip(center, {content: mode === "traditional" ? props.nazwa+'<br>'+props.kraina : props.nazwa+'<br>'+props.gatunek, direction: 'center'});
 	layer.on('mouseover', function () {
 		layer.setStyle(polygon_STL_on(feature));
 		layer.bringToFront();
 		tt.openOn(full_map);
 	});
 	layer.on('mouseout', function () {
-		layer.setStyle(regiony_STL_off(feature));
+		layer.setStyle(polygon_STL_off(feature));
 		layer.bringToBack();
 		full_map.closePopup(tt);
 	});
