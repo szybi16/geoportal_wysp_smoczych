@@ -55,21 +55,35 @@ function polygon_STL_off(feature) {
     };
 }
 
+function polygon_TT_content(feature) {
+    var mode = document.getElementById("select_mode").value;
+    var props = feature.properties;
+    return {
+        content: "<strong>" + props.nazwa + "</strong><br>" + 
+                 (mode === "traditional" ? props.kraina : props.gatunek),
+        direction: 'center'
+    };
+}
+
 function polygon_oEF(feature, layer) {
-	var mode = document.getElementById("select_mode").value;
-	var props = feature.properties;
-	var center = layer.getBounds().getCenter();
-	var tt = L.tooltip(center, {content: mode === "traditional" ? props.nazwa+'<br>'+props.kraina : props.nazwa+'<br>'+props.gatunek, direction: 'center'});
-	layer.on('mouseover', function () {
-		layer.setStyle(polygon_STL_on(feature));
-		layer.bringToFront();
-		tt.openOn(full_map);
-	});
-	layer.on('mouseout', function () {
-		layer.setStyle(polygon_STL_off(feature));
-		layer.bringToBack();
-		full_map.closePopup(tt);
-	});
+    var center = layer.getBounds().getCenter();
+    var tt = L.tooltip({
+        permanent: false,
+        direction: 'center'
+    }).setLatLng(center);
+    layer.on('mouseover', function () {
+        if (typeof polygon_STL_on === "function") {
+            layer.setStyle(polygon_STL_on(feature));
+        }
+        layer.bringToFront();
+        tt.setContent(polygon_TT_content(feature).content);
+        full_map.openTooltip(tt);
+    });
+    layer.on('mouseout', function () {
+        layer.setStyle(polygon_STL_off(feature));
+        layer.bringToBack();
+        full_map.closeTooltip(tt);
+    });
 }
 
 function miasta_PToL(feature,latlng) {
