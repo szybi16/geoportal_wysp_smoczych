@@ -1,3 +1,5 @@
+//Funkcje do wszystkiego co fajne
+
 function polygon_STL_on(feature) {
 	return {
 		color: "red",

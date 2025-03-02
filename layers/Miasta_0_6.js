@@ -1,4 +1,3 @@
-//xdddd
 var miasta = {
 "type": "FeatureCollection",
 "name": "Miasta_0_6",

@@ -1,4 +1,3 @@
-//xdddddddd
 var regiony = {
 "type": "FeatureCollection",
 "name": "Regiony_1_5",
