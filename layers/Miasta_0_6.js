@@ -1,8 +1,10 @@
+//xdddd
 var miasta = {
 "type": "FeatureCollection",
-"name": "Miasta_0_5",
+"name": "Miasta_0_6",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
+{ "type": "Feature", "properties": { "id": 91, "opis": null, "nazwa": "Rutbagval", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -64.627431255882669, -38.141582619179786 ] } },
 { "type": "Feature", "properties": { "id": 1, "opis": "Stolica Królestwa Pictanii", "nazwa": "Mustburg", "ikona": "crown" }, "geometry": { "type": "Point", "coordinates": [ -65.91573972595954, -38.05141515832517 ] } },
 { "type": "Feature", "properties": { "id": 2, "opis": "Dawna stolica Królestwa Kustau", "nazwa": "Dolfheim", "ikona": "fort" }, "geometry": { "type": "Point", "coordinates": [ -67.058950941134313, -37.706446076166557 ] } },
 { "type": "Feature", "properties": { "id": 3, "opis": "Obecna stolica Królestwa Kustau", "nazwa": "Elfredheim", "ikona": "crown" }, "geometry": { "type": "Point", "coordinates": [ -67.234679948118099, -37.64562809652999 ] } },
@@ -13,7 +15,7 @@ var miasta = {
 { "type": "Feature", "properties": { "id": 8, "opis": "Port piracki", "nazwa": "Wyvernwatch", "ikona": "marina" }, "geometry": { "type": "Point", "coordinates": [ -66.505008058972848, -39.980691920931569 ] } },
 { "type": "Feature", "properties": { "id": 9, "opis": "Stolica Księstwa Ravenbellu", "nazwa": "Ravenbell", "ikona": "crown" }, "geometry": { "type": "Point", "coordinates": [ -66.010700253497717, -36.319074032056164 ] } },
 { "type": "Feature", "properties": { "id": 10, "opis": "", "nazwa": "Tomburg", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.348710131690098, -38.143668345106093 ] } },
-{ "type": "Feature", "properties": { "id": 11, "opis": "Wolne miasto", "nazwa": "Lamgard", "ikona": "pub" }, "geometry": { "type": "Point", "coordinates": [ -64.715122226329669, -38.190046520129094 ] } },
+{ "type": "Feature", "properties": { "id": 11, "opis": "Wolne miasto", "nazwa": "Lamgard", "ikona": "pub" }, "geometry": { "type": "Point", "coordinates": [ -64.685414238493451, -38.204321548860399 ] } },
 { "type": "Feature", "properties": { "id": 12, "opis": "Wolne miasto portowe", "nazwa": "Shtanhaufen", "ikona": "marina" }, "geometry": { "type": "Point", "coordinates": [ -65.135693508336175, -36.180764118900335 ] } },
 { "type": "Feature", "properties": { "id": 13, "opis": "Kept hergadzki, miasto urodzenia Gryffina", "nazwa": "Angelhelm", "ikona": "boundary_stone" }, "geometry": { "type": "Point", "coordinates": [ -66.300184382671034, -36.612497511359962 ] } },
 { "type": "Feature", "properties": { "id": 14, "opis": "Wolne miasto portowe", "nazwa": "Narden", "ikona": "marina" }, "geometry": { "type": "Point", "coordinates": [ -65.116030435411204, -36.124312803203026 ] } },
@@ -45,7 +47,7 @@ var miasta = {
 { "type": "Feature", "properties": { "id": 40, "opis": "Stlolica Höglandii", "nazwa": "Högholt", "ikona": "tower" }, "geometry": { "type": "Point", "coordinates": [ -66.270689773283593, -39.127500340535633 ] } },
 { "type": "Feature", "properties": { "id": 41, "opis": "Stolica Rudderlandii", "nazwa": "Rubfurt", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -66.294270382146834, -37.041699654470676 ] } },
 { "type": "Feature", "properties": { "id": 42, "opis": "", "nazwa": "Maplewald", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.776928164278573, -38.082644741734356 ] } },
-{ "type": "Feature", "properties": { "id": 43, "opis": "Stolica Księstwa Erton", "nazwa": "Erton", "ikona": "fort" }, "geometry": { "type": "Point", "coordinates": [ -64.677980866360329, -38.184894846762873 ] } },
+{ "type": "Feature", "properties": { "id": 43, "opis": "Stolica Księstwa Erton", "nazwa": "Erton", "ikona": "fort" }, "geometry": { "type": "Point", "coordinates": [ -64.653188057423534, -38.204557732083764 ] } },
 { "type": "Feature", "properties": { "id": 44, "opis": "Dawna stolica Księstwa Wallinar", "nazwa": "Tunaburg", "ikona": "fort" }, "geometry": { "type": "Point", "coordinates": [ -65.971374107647819, -38.246690876507905 ] } },
 { "type": "Feature", "properties": { "id": 45, "opis": "", "nazwa": "Detgard", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.691721514937001, -37.968195768524339 ] } },
 { "type": "Feature", "properties": { "id": 46, "opis": "", "nazwa": "Twindam", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.385851491659565, -38.035337898255548 ] } },
@@ -92,6 +94,8 @@ var miasta = {
 { "type": "Feature", "properties": { "id": 87, "opis": "", "nazwa": "Azulandam", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.390098175735062, -40.500432576380497 ] } },
 { "type": "Feature", "properties": { "id": 88, "opis": "", "nazwa": "Andersee", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -65.265130494922445, -39.530959822362526 ] } },
 { "type": "Feature", "properties": { "id": 89, "opis": "", "nazwa": "Owletgam", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -64.814735030969828, -39.77986319742098 ] } },
-{ "type": "Feature", "properties": { "id": 90, "opis": "", "nazwa": "Quillfeld", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -66.59243321062975, -38.584611944770373 ] } }
+{ "type": "Feature", "properties": { "id": 90, "opis": "", "nazwa": "Quillfeld", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -66.59243321062975, -38.584611944770373 ] } },
+{ "type": "Feature", "properties": { "id": 92, "opis": null, "nazwa": "Lemonsitat", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -64.601921657180355, -38.175594502177617 ] } },
+{ "type": "Feature", "properties": { "id": 93, "opis": null, "nazwa": "Borval", "ikona": "castle_defensive" }, "geometry": { "type": "Point", "coordinates": [ -64.710060173418356, -38.244659508099865 ] } }
 ]
 }

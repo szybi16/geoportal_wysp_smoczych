@@ -31,7 +31,9 @@ var region_colors = {
 	"Draakland": "#375faf",
 	"Wilgid": "#771b36",
 	"Ortemark": "#275f8f",
-	"Innau": "#4b5d8d"
+	"Innau Północne": "#4b5d8d",
+	"Innau Południowe": "#c957d8",
+	"Kirheim": "#629e4d"
 };
 
 var species_colors = {
